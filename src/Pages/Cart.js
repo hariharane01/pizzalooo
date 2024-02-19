@@ -1,18 +1,16 @@
 import React from "react";
 import Navigation from "../Components/NAVBAR/Navigation";
-import Banner from "../Components/Slider/Banner";
 import Productcard from "../Components/Cards/ProductCard";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 import { data } from "../data";
 
-export default function Home() {
+export default function Cart() {
   return (
     <section>
      
       <Navigation />
-      <Banner  />
       <div id="Product-listing-card" className="container  ">
         <Row>
           {data.length > 0 ? (
