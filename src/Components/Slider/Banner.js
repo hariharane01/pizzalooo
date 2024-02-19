@@ -33,7 +33,7 @@ function Banner() {
     <Carousel activeIndex={index} onSelect={handleSelect}>
       {posterData &&
         posterData.map((d, i) => (
-          <Carousel.Item>
+          <Carousel.Item key={`offer-banner-${d.id}`} >
             <img src={d?.image} alt={d?.label} />
             <Carousel.Caption>
               <h3> {d?.label} </h3>
