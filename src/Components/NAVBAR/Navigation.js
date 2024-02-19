@@ -7,14 +7,12 @@ import { useNavigate } from "react-router-dom";
 export default function Navigation() {
   const navigator = useNavigate();
 
-  const routeToHome=() =>{
-    navigator('/')
-  }
-    const routeToCart= () =>{
-      navigator('/cart') 
-     
-        
-    }
+  const routeToHome = () => {
+    navigator("/");
+  };
+  const routeToCart = () => {
+    navigator("/cart");
+  };
 
   return (
     <>
@@ -28,8 +26,9 @@ export default function Navigation() {
               justifyContent: "space-between",
             }}
           >
-            <div onClick={routeToHome}
-              style={{ width: "100%", display: "flex", alignItems: "center"   }}
+            <div
+              onClick={routeToHome}
+              style={{ width: "100%", display: "flex", alignItems: "center" }}
             >
               <img
                 alt=""
@@ -38,10 +37,12 @@ export default function Navigation() {
                 height="30"
                 className="d-inline-block align-top"
               />{" "}
-              <p style={{ color: "#fff", margin: "opx", fontSize:"25px" }}>Pizzaalooo</p>
+              <p style={{ color: "#fff", margin: "opx", fontSize: "25px" }}>
+                Pizzaalooo
+              </p>
             </div>
 
-            <IoCart color="white"  onClick={routeToCart}/>
+            <IoCart color="white" onClick={routeToCart} />
           </div>
         </Container>
       </Navbar>
