@@ -1,4 +1,3 @@
-import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./Pages/Home";
 import { Routes, Route } from "react-router-dom";
 import Productcard from "./Components/Cards/ProductCard";
