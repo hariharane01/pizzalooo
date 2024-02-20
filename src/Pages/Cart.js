@@ -3,31 +3,55 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { data } from "../data";
 import CartCard from "../Components/Cards/CartCard";
+
+const cartTotal = (data) => {
+  let total = 0;
+  if (data.length < 0) {
+    total = 0;
+  } else {
+    data.forEach((d) => {
+      total += d.quantity * d.price;
+    });
+  }
+  return total;
+};
+
 export default function Cart() {
-  const [cart, setCart] = useState();
+  const [cart, setCart] = useState([]);
+  const [total, setTotal] = useState(0);
+
   useEffect(() => {
     if (data.length > 0) {
       setCart(data);
     }
   }, [data]);
 
-const handleQuantityBtn= (type, id )=>{
-  console.log(type,id) 
-  let cardCopy=[...cart]; //to copy a cart value to  array
-  const itemSelected= cardCopy.filter((d,i ) => d.id === id)
-  itemSelected[0].quantity += 1;
-  console.log(itemSelected)
-  setCart(cardCopy);
-}
+  useEffect(() => {
+    if (cart.length > 0) {
+      setTotal(cartTotal(cart));
+    }
+  }, [cart]);
+
+  const handleQuantityBtn = (type, id) => {
+    let cardCopy = [...cart]; //to copy a cart value to  array
+    const itemSelected = cardCopy.find((d) => d.id === id);
+    if (type === "0") {
+      itemSelected.quantity += 1;
+    }
+     if (type === "1" && itemSelected.quantity > 0){
+      itemSelected.quantity -= 1;
+    }
+    setCart(cardCopy);
+  };
 
   return (
-    <section>
+    <section id="cart-page-container" className="p-2">
       <div id="Cart-listing-card" className="container  m-4 ">
         <Row>
-          {data.length > 0 ? (
-            data.map((d, i) => (
+          {cart.length > 0 ? (
+            cart.map((d, i) => (
               <Col className="mt-3 " xs={6} sm={6} md={4} lg={3}>
-                <CartCard key={`Cart-card-${i}`} data={d}  quantityCb={handleQuantityBtn} />
+                <CartCard key={i} data={d} quantityCb={handleQuantityBtn} />
               </Col>
             ))
           ) : (
@@ -35,11 +59,17 @@ const handleQuantityBtn= (type, id )=>{
           )}
         </Row>
       </div>
-      <div className="cart-calculator">
+      <div className="cart-calculator" id="cart-Calculator">
         <ul>
-          {data.length > 0 && data.map((d, i) => <li>{d?.name} x {d.quantity} </li>)}
-
+          {cart.length > 0 &&
+            cart.map((d, i) => (
+              <li key={i}>
+                {d?.name} x {d.quantity}
+              </li>
+            ))}
         </ul>
+        <h3>Cart Total </h3>
+        <p>{total} </p>
       </div>
     </section>
   );

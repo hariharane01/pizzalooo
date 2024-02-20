@@ -1,15 +1,16 @@
 export const data = [
   {
-    id:1,
+    id: 1,
     name: " Barbecue Chicken",
     imageUrl:
       "https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/menu/caa88590-9486-4a8b-be77-36e7403aa301_new_pepper_barbeque_chicken.jpg",
     price: "299",
     size: ["S", "M ", "L", "xl"],
     discount: "10%",
-    quantity: 1,
+    quantity: 0,
   },
-  {    id:2,
+  {
+    id: 2,
 
     name: " Fiery Sausage & Paprika",
     imageUrl:
@@ -17,18 +18,20 @@ export const data = [
     price: "299",
     size: ["S", "M ", "L", "xl"],
     discount: "10%",
-    quantity: 1,
+    quantity: 0,
   },
-  {    id:3,
+  {
+    id: 3,
 
     name: " Margherita",
     imageUrl:
       " https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/menu/79bc3609-690b-440e-b8be-74694b1f3215_new_margherita_2502.jpg",
     price: "299",
     discount: "10%",
-    quantity: 1,
+    quantity: 0,
   },
-  {    id:4,
+  {
+    id: 4,
 
     name: " Veggie Buddies",
     imageUrl:
@@ -36,16 +39,15 @@ export const data = [
     price: "199",
     size: ["S", "M ", "L", "xl"],
     discount: "10%",
-    quantity: 1,
+    quantity: 0,
   },
-  { id:5,
+  {
+    id: 5,
     name: "Triple Veg Delight",
     imageUrl:
       "https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/menu/b2e8e739-14cb-42d6-a462-f94ca3060a51_Triple-Veg-Delight-Customise.jpg",
     price: "199",
     discount: "10%",
-    quantity: 1,
+    quantity: 0,
   },
- 
-  
 ];

@@ -9,13 +9,13 @@ const posterData = [
     label: "cheese pizza",
   },
   {
-    id: 1,
+    id: 2,
     image:
       "https://img.freepik.com/free-psd/fast-food-restaurant-landing-page_23-2148987497.jpg?size=626&ext=jpg&ga=GA1.1.874248855.1693290431&semt=ais",
     label: "last slice ",
   },
   {
-    id: 1,
+    id: 3,
     image:
       "https://img.freepik.com/free-vector/hand-drawn-pizza-horizontal-banner_23-2150267796.jpg?size=626&ext=jpg&ga=GA1.1.874248855.1693290431&semt=ais",
     label: "buy 2 get one",
