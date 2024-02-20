@@ -26,10 +26,21 @@ export const CartSlice = createSlice({
         }
         state.items = cartCopy;
       }
-    },
+     
+    }, 
+    removeFromCart:(state, action)=> {
+      const { id=''} = action.payload;
+      if(id){
+        let cartCopy = [...state.items];
+        const filteredItems = cartCopy.filter((d) => d.id !== id);
+        state.items = filteredItems;
+      }
+
+
+    }
   },
 });
 
-export const { addItemtoCart, handleQuantityChange } = CartSlice.actions;
+export const { addItemtoCart, handleQuantityChange,removeFromCart } = CartSlice.actions;
 
 export default CartSlice.reducer;

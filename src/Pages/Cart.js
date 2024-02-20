@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { data } from "../data";
 import CartCard from "../Components/Cards/CartCard";
 import { useSelector } from "react-redux";
 
 const cartTotal = (data) => {
   let total = 0;
-  if (data.length < 0) {
+  if (data.length <0) {
     total = 0;
   } else {
     data.forEach((d) => {
@@ -23,15 +22,7 @@ export default function Cart() {
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    if (data.length > 0) {
-      setCart(data);
-    }
-  }, [data]);
-
-  useEffect(() => {
-    if (items.length > 0) {
-      setTotal(cartTotal(items));
-    }
+    setTotal(cartTotal(items));
   }, [items]);
 
   const handleQuantityBtn = (type, id) => {
@@ -54,10 +45,8 @@ export default function Cart() {
             items.map((d, i) => (
               <Col className="mt-3 " xs={6} sm={6} md={4} lg={3}>
                 <CartCard key={i} data={d} quantityCb={handleQuantityBtn} />
-               </Col>
-              
+              </Col>
             ))
-            
           ) : (
             <h3>Cart is Empty😞</h3>
           )}
@@ -72,8 +61,7 @@ export default function Cart() {
               </li>
             ))}
         </ul>
-        <h3>Cart Total: {total}  </h3>
-                
+        <h3>Cart Total: {total} </h3>
       </div>
     </section>
   );

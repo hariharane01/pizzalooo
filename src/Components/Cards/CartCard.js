@@ -1,18 +1,21 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
-import { handleQuantityChange } from "../../Redux/Reducers/Cart.reducer";
+import {
+  handleQuantityChange,
+  removeFromCart,
+} from "../../Redux/Reducers/Cart.reducer";
 import { useDispatch } from "react-redux";
+import { MdDelete } from "react-icons/md";
 
 function CartCard({ data = {}, quantityCb = () => {} }) {
   const dispatch = useDispatch();
 
-function handleItemQuantity(type, id ){
-  if(type && id ){
-    dispatch(handleQuantityChange({ type:type, id:id}))
+  function handleItemQuantity(type, id) {
+    if (type && id) {
+      dispatch(handleQuantityChange({ type: type, id: id }));
+    }
   }
-
-}
 
   return (
     <Card
@@ -46,6 +49,10 @@ function handleItemQuantity(type, id ){
             >
               +
             </Button>
+            <MdDelete
+              color="red"
+              onClick={() => dispatch(removeFromCart({ id:data.id }))}
+            />
           </div>
         </Card.Body>
       </div>
