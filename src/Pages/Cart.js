@@ -54,24 +54,26 @@ export default function Cart() {
             items.map((d, i) => (
               <Col className="mt-3 " xs={6} sm={6} md={4} lg={3}>
                 <CartCard key={i} data={d} quantityCb={handleQuantityBtn} />
-              </Col>
+               </Col>
+              
             ))
+            
           ) : (
-            <p>Is not avalaible today</p>
+            <h3>Cart is Empty😞</h3>
           )}
         </Row>
       </div>
       <div className="cart-calculator" id="cart-Calculator">
         <ul>
-          {cart.length > 0 &&
-            cart.map((d, i) => (
+          {items.length > 0 &&
+            items.map((d, i) => (
               <li key={i}>
                 {d?.name} x {d.quantity}
               </li>
             ))}
         </ul>
-        <h3>Cart Total </h3>
-        <p>{total} </p>
+        <h3>Cart Total: {total}  </h3>
+                
       </div>
     </section>
   );

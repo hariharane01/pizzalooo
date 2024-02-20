@@ -1,8 +1,19 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
+import { handleQuantityChange } from "../../Redux/Reducers/Cart.reducer";
+import { useDispatch } from "react-redux";
 
 function CartCard({ data = {}, quantityCb = () => {} }) {
+  const dispatch = useDispatch();
+
+function handleItemQuantity(type, id ){
+  if(type && id ){
+    dispatch(handleQuantityChange({ type:type, id:id}))
+  }
+
+}
+
   return (
     <Card
       className="product-card"
@@ -23,7 +34,7 @@ function CartCard({ data = {}, quantityCb = () => {} }) {
               size="sm"
               color="success"
               style={{ margin: "" }}
-              onClick={() => quantityCb("1", data.id)}
+              onClick={() => handleItemQuantity("1", data.id)}
             >
               -
             </Button>
@@ -31,7 +42,7 @@ function CartCard({ data = {}, quantityCb = () => {} }) {
             <Button
               size="sm"
               color="success"
-              onClick={() => quantityCb("0", data.id)}
+              onClick={() => handleItemQuantity("0", data.id)}
             >
               +
             </Button>
