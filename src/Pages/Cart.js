@@ -3,6 +3,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { data } from "../data";
 import CartCard from "../Components/Cards/CartCard";
+import { useSelector } from "react-redux";
 
 const cartTotal = (data) => {
   let total = 0;
@@ -17,6 +18,7 @@ const cartTotal = (data) => {
 };
 
 export default function Cart() {
+  const { items = [] } = useSelector((state) => state.cart);
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
 
@@ -27,10 +29,10 @@ export default function Cart() {
   }, [data]);
 
   useEffect(() => {
-    if (cart.length > 0) {
-      setTotal(cartTotal(cart));
+    if (items.length > 0) {
+      setTotal(cartTotal(items));
     }
-  }, [cart]);
+  }, [items]);
 
   const handleQuantityBtn = (type, id) => {
     let cardCopy = [...cart]; //to copy a cart value to  array
@@ -38,7 +40,7 @@ export default function Cart() {
     if (type === "0") {
       itemSelected.quantity += 1;
     }
-     if (type === "1" && itemSelected.quantity > 0){
+    if (type === "1" && itemSelected.quantity > 0) {
       itemSelected.quantity -= 1;
     }
     setCart(cardCopy);
@@ -48,8 +50,8 @@ export default function Cart() {
     <section id="cart-page-container" className="p-2">
       <div id="Cart-listing-card" className="container  m-4 ">
         <Row>
-          {cart.length > 0 ? (
-            cart.map((d, i) => (
+          {items.length > 0 ? (
+            items.map((d, i) => (
               <Col className="mt-3 " xs={6} sm={6} md={4} lg={3}>
                 <CartCard key={i} data={d} quantityCb={handleQuantityBtn} />
               </Col>
