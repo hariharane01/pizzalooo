@@ -2,10 +2,12 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import { IoCart } from "react-icons/io5";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 export default function Navigation() {
   const navigator = useNavigate();
+  const { items=[] }=useSelector((state ) => state.cart)
 
   const routeToHome = () => {
     navigator("/");
@@ -41,8 +43,12 @@ export default function Navigation() {
                 Pizzaalooo
               </p>
             </div>
+            <div style={{ position: "relative" }}>
+              <IoCart color="white" onClick={routeToCart} />
 
-            <IoCart color="white" onClick={routeToCart} />
+              {items.length>0 && <span className="quantity-bubble"> {items.length} </span>}
+              
+            </div>
           </div>
         </Container>
       </Navbar>

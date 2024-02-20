@@ -3,18 +3,21 @@ import Banner from "../Components/Slider/Banner";
 import Productcard from "../Components/Cards/ProductCard";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { data } from "../data";
+
+import { UseSelector, useSelector } from "react-redux";
 
  
 export default function Home() {
+  const {products=[ ]} = useSelector(( state)=> state.product)
+
 
   return (
     <section>
       <Banner />
       <div id="Product-listing-card" className="container  ">
         <Row>
-          {data.length > 0 ? (
-            data.map((d, i) => (
+          {products.length > 0 ? (
+            products.map((d, i) => (
               <Col className="mt-3" xs={6} sm={6} md={4} lg={3}>
                 <Productcard key={`product-card-${i}`} data={d} />
               </Col>

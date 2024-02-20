@@ -11,3 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.quantity-bubble{
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: red;
+  border-radius: 50%;
+  top: -5px ;
+  right: -8px ;
+  display: flex ;
+  align-items: center ;
+  justify-content: center;
+  color: white;
+}
