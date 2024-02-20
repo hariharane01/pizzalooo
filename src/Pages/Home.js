@@ -3,10 +3,11 @@ import Banner from "../Components/Slider/Banner";
 import Productcard from "../Components/Cards/ProductCard";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-
 import { data } from "../data";
 
+ 
 export default function Home() {
+
   return (
     <section>
       <Banner />
